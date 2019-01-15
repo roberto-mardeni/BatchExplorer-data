@@ -4,7 +4,7 @@ param(
 )
 $ErrorActionPreference = "Stop"
 
-$init_file = Join-Path $env:AZ_BATCH_NODE_SHARED_DIR, "init_corona_plugin.txt"
+$init_file = Join-Path $env:AZ_BATCH_NODE_SHARED_DIR "init_corona_plugin.txt"
 
 # If already installed, skip
 If (!(Test-Path $init_file)) {
@@ -20,7 +20,7 @@ If (!(Test-Path $init_file)) {
     
     $corona_activation_path = Join-Path $env:LOCALAPPDATA, "CoronaRenderer"
     New-Item $corona_activation_path -ItemType Directory -ErrorAction Ignore -Verbose
-    Set-Content -Path (Join-Path $corona_activation_path, "CoronaActivation.txt") -Value "${$fairSaasUsername}:${$fairSaasPassword}"
+    Set-Content -Path (Join-Path $corona_activation_path "CoronaActivation.txt") -Value "${$fairSaasUsername}:${$fairSaasPassword}"
     Write-Host "Created Corona License Activation File"
 
     "done" | Out-File $init_file
@@ -28,5 +28,6 @@ If (!(Test-Path $init_file)) {
     Write-Error $_
   }
 }
+
 
 Write-Host "Corona Plugin Installation Completed"
