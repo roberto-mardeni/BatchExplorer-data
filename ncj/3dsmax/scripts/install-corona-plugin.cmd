@@ -4,13 +4,21 @@ set fairSaasPassword=%~2
 rem If already installed, skip
 if exist %AZ_BATCH_NODE_SHARED_DIR%\init_corona_plugin.txt exit /b 0
 
+rem Store current directory
+pushd .
+
 rem Extract and install Corona Plugin for 3ds Max 2018
-7z x -y 3dsmax-corona-2018-plugin.zip -o %3DSMAX_2018%
+cd %3DSMAX_2018%
+7z x -y 3dsmax-corona-2018-plugin.zip
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 rem Extract and install Corona Plugin for 3ds Max 2019
-7z x -y 3dsmax-corona-2019-plugin.zip -o %3DSMAX_2019%
+cd %3DSMAX_2019%
+7z x -y 3dsmax-corona-2019-plugin.zip
 if %errorlevel% neq 0 exit /b %errorlevel%
+
+rem Restore current directory
+popd
 
 set corona_activation_path=%LOCALAPPDATA%\CoronaRenderer
 if exist %corona_activation_path% goto CreateCoronaLicenseFile
