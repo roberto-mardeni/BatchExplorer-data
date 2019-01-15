@@ -1,3 +1,6 @@
+echo "ENVIRONMENT VARIABLES"
+set
+
 set fairSaasUsername=%~1
 set fairSaasPassword=%~2
 
@@ -5,11 +8,13 @@ rem If already installed, skip
 if exist %AZ_BATCH_NODE_SHARED_DIR%\init_corona_plugin.txt exit /b 0
 
 rem Extract and install Corona Plugin for 3ds Max 2018
-7z x -y -o%\3DSMAX_2018% 3dsmax-corona-2018-plugin.zip
+set dest=%3DSMAX_2018%
+7z x -y -o%dest% 3dsmax-corona-2018-plugin.zip
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 rem Extract and install Corona Plugin for 3ds Max 2019
-7z x -y -o%\3DSMAX_2019% 3dsmax-corona-2019-plugin.zip
+set dest=%3DSMAX_2019%
+7z x -y -o%dest% 3dsmax-corona-2019-plugin.zip
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 set corona_activation_path=%LOCALAPPDATA%\CoronaRenderer
