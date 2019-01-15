@@ -18,7 +18,7 @@ If (!(Test-Path $init_file)) {
     7z x -y -o"$env:3DSMAX_2019" "3dsmax-corona-2019-plugin.zip"
     Write-Host "Installed Corona 2019 Plugin"
     
-    $corona_activation_path = Join-Path $env:LOCALAPPDATA, "CoronaRenderer"
+    $corona_activation_path = Join-Path $env:LOCALAPPDATA "CoronaRenderer"
     New-Item $corona_activation_path -ItemType Directory -ErrorAction Ignore -Verbose
     Set-Content -Path (Join-Path $corona_activation_path "CoronaActivation.txt") -Value "${$fairSaasUsername}:${$fairSaasPassword}"
     Write-Host "Created Corona License Activation File"
