@@ -9,7 +9,7 @@ Start-Transcript -Path (Join-Path $current_path "install-corona-plugin.log")
 $init_file = Join-Path $env:AZ_BATCH_NODE_SHARED_DIR, "init_corona_plugin.txt"
 
 # If already installed, skip
-If (!Test-Path $init_file) {
+If (!(Test-Path $init_file)) {
   try {
     # Extract and install Corona Plugin for 3ds Max 2018
     7z x -y -o"$env:3DSMAX_2018" "3dsmax-corona-2018-plugin.zip"
