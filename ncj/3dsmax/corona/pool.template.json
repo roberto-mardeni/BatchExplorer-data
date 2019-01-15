@@ -144,7 +144,7 @@
     "enableAutoScale": false,
     "enableInterNodeCommunication": false,
     "startTask": {
-      "commandLine": "cmd.exe /c install-azure-nc-drivers.cmd [parameters('vmSize')] && cmd /c install-corona-plugin.cmd [parameters('coronaFairSaasUsername')] [parameters('coronaFairSaasPassword')]",
+      "commandLine": "cmd.exe /c install-azure-nc-drivers.cmd [parameters('vmSize')] && cmd /c powershell -ExecutionPolicy Unrestricted -File install-corona-plugin.ps1 [parameters('coronaFairSaasUsername')] [parameters('coronaFairSaasPassword')]",
       "waitForSuccess": true,
       "maxTaskRetryCount": 0,
       "userIdentity": {
@@ -157,8 +157,8 @@
         "blobSource": "https://raw.githubusercontent.com/Azure/BatchExplorer-data/master/ncj/3dsmax/scripts/install-azure-nc-drivers.cmd",
         "filePath": "install-azure-nc-drivers.cmd"
       }, {
-        "blobSource": "https://raw.githubusercontent.com/roberto-mardeni/BatchExplorer-data/corona-support/ncj/3dsmax/scripts/install-corona-plugin.cmd",
-        "filePath": "install-corona-plugin.cmd"
+        "blobSource": "https://raw.githubusercontent.com/roberto-mardeni/BatchExplorer-data/corona-support/ncj/3dsmax/scripts/install-corona-plugin.ps1",
+        "filePath": "install-corona-plugin.ps1"
       }, {
         "blobSource": "https://raw.githubusercontent.com/roberto-mardeni/BatchExplorer-data/corona-support/ncj/3dsmax/scripts/3dsmax-corona-2018-plugin.zip",
         "filePath": "3dsmax-corona-2018-plugin.zip"
