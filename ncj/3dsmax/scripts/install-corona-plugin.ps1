@@ -20,7 +20,7 @@ If (!(Test-Path $init_file)) {
     
     $corona_activation_path = Join-Path $env:LOCALAPPDATA "CoronaRenderer"
     New-Item $corona_activation_path -ItemType Directory -ErrorAction Ignore -Verbose
-    Set-Content -Path (Join-Path $corona_activation_path "CoronaActivation.txt") -Value "${$fairSaasUsername}:${$fairSaasPassword}"
+    Set-Content -Path (Join-Path $corona_activation_path "CoronaActivation.txt") -Value "$($fairSaasUsername):$($fairSaasPassword)"
     Write-Host "Created Corona License Activation File"
 
     "done" | Out-File $init_file
