@@ -11,7 +11,7 @@ If (!(Test-Path $init_file)) {
     $scalpel_package_path = [System.Environment]::GetEnvironmentVariable("AZ_BATCH_APP_PACKAGE_SCALPEL_3DSMAX#2019")
 
     # Copy the Scalpel files to the expected location
-    Copy-Item -Path $scalpel_package_path -Destination $plugins_path -Recurse -Force -Verbose
+    Copy-Item -Path "$scalpel_package_path\cebas" -Destination $plugins_path -Recurse -Force -Verbose
 
     # Add the Scalpel path to the plugin.ini
     Add-Content -Path (Join-Path $env:3DSMAX_2019 "plugin.ini") -Value $scalpel_path
