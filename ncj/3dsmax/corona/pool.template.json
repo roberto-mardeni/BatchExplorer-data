@@ -141,15 +141,10 @@
     "applicationLicenses": [
       "3dsmax"
     ],
-    "applicationPackageReferences": [
-        { 
-          "applicationId": "SCALPEL_3DSMAX", "version": "2019" 
-        }
-    ],
     "enableAutoScale": false,
     "enableInterNodeCommunication": false,
     "startTask": {
-      "commandLine": "cmd.exe /c install-azure-nc-drivers.cmd [parameters('vmSize')] && cmd /c powershell -ExecutionPolicy Unrestricted -File install-scalpel-plugin.ps1 && cmd /c powershell -ExecutionPolicy Unrestricted -File install-corona-plugin.ps1 [parameters('coronaFairSaasUsername')] [parameters('coronaFairSaasPassword')]",
+      "commandLine": "cmd /c powershell -ExecutionPolicy Unrestricted -File install-corona-plugin.ps1 [parameters('coronaFairSaasUsername')] [parameters('coronaFairSaasPassword')]",
       "waitForSuccess": true,
       "maxTaskRetryCount": 0,
       "userIdentity": {
@@ -170,9 +165,6 @@
       }, {
         "blobSource": "https://raw.githubusercontent.com/roberto-mardeni/BatchExplorer-data/corona-support/ncj/3dsmax/scripts/3dsmax-corona-2019-plugin.zip",
         "filePath": "3dsmax-corona-2019-plugin.zip"
-      }, {
-        "blobSource": "https://raw.githubusercontent.com/roberto-mardeni/BatchExplorer-data/corona-support/ncj/3dsmax/scripts/install-scalpel-plugin.ps1",
-        "filePath": "install-scalpel-plugin.ps1"
       }]
     }
   }
