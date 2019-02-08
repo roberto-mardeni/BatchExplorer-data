@@ -8,7 +8,7 @@ If (!(Test-Path $init_file)) {
   try {
     $scalpel_path = [System.Environment]::GetEnvironmentVariable("AZ_BATCH_APP_PACKAGE_SCALPEL_3DSMAX#2019")
     # Add the Scalpel path to the
-    Add-Content -Path (Join-Path $env:3DSMAX_2019 "plugin.ini") -Value $scalpel_path
+    Add-Content -Path (Join-Path $env:3DSMAX_2019 "plugin.ini") -Value "$scalpel_path\cebas\3dsMax2019_x64"
 
     "done" | Out-File $init_file
   } catch {
