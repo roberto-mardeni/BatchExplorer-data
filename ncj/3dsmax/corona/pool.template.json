@@ -144,7 +144,7 @@
     "enableAutoScale": false,
     "enableInterNodeCommunication": false,
     "startTask": {
-      "commandLine": "cmd /c powershell -ExecutionPolicy Unrestricted -File install-corona-plugin.ps1 [parameters('coronaFairSaasUsername')] [parameters('coronaFairSaasPassword')] & cmd.exe /c install-azure-nc-drivers.cmd [parameters('vmSize')]",
+      "commandLine": "cmd /c powershell -ExecutionPolicy Unrestricted -File install-scalpel-plugin.ps1 & cmd /c powershell -ExecutionPolicy Unrestricted -File install-corona-plugin.ps1 [parameters('coronaFairSaasUsername')] [parameters('coronaFairSaasPassword')] & cmd.exe /c install-azure-nc-drivers.cmd [parameters('vmSize')]",
       "waitForSuccess": true,
       "maxTaskRetryCount": 0,
       "userIdentity": {
@@ -165,6 +165,15 @@
       }, {
         "blobSource": "https://raw.githubusercontent.com/roberto-mardeni/BatchExplorer-data/corona-support/ncj/3dsmax/scripts/3dsmax-corona-2019-plugin.zip",
         "filePath": "3dsmax-corona-2019-plugin.zip"
+      }, {
+        "blobSource": "https://raw.githubusercontent.com/roberto-mardeni/BatchExplorer-data/corona-support/ncj/3dsmax/scripts/install-scalpel-plugin.ps1",
+        "filePath": "install-scalpel-plugin.ps1"
+      }, {
+        "blobSource": "https://raw.githubusercontent.com/roberto-mardeni/BatchExplorer-data/corona-support/ncj/3dsmax/scripts/cebas.zip",
+        "filePath": "cebas.zip"
+      }, {
+        "blobSource": "https://raw.githubusercontent.com/roberto-mardeni/BatchExplorer-data/corona-support/ncj/3dsmax/scripts/Plugin.ini",
+        "filePath": "Plugin.ini"
       }]
     }
   }
