@@ -144,7 +144,7 @@
     "enableAutoScale": false,
     "enableInterNodeCommunication": false,
     "startTask": {
-      "commandLine": "cmd /c powershell -ExecutionPolicy Unrestricted -File install-corona-plugin.ps1 [parameters('coronaFairSaasUsername')] [parameters('coronaFairSaasPassword')]",
+      "commandLine": "cmd /c powershell -ExecutionPolicy Unrestricted -File install-corona-plugin.ps1 [parameters('coronaFairSaasUsername')] [parameters('coronaFairSaasPassword')] & cmd.exe /c install-azure-nc-drivers.cmd [parameters('vmSize')]",
       "waitForSuccess": true,
       "maxTaskRetryCount": 0,
       "userIdentity": {
